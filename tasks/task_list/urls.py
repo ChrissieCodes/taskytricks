@@ -8,6 +8,8 @@ urlpatterns = [
     path('task_list/<int:pk>/', views.task_list_detail),
     path('tag/',views.tag_list),
     path('tag/<int:pk>/',views.tag_detail),
+    path('all/', views.index, name="index"),
+    path('all/<int:pk>/',views.task_detail),
 ]
 
 

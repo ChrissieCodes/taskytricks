@@ -84,3 +84,11 @@ def tag_detail(request, pk, format = None):
     elif request.method == 'DELETE':
         tag.delete()
         return Response(status = status.HTTP_204_NO_CONTENT)
+
+def index(request):
+    return render(request, "task_list/index.html")
+
+def task_detail(request,pk):
+    task_list_verbose = Task.objects.values()
+    task_dict = {"result":task_list_verbose}
+    return render(request, "task_list/task-list.html", task_dict)

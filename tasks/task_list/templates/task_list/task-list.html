@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="author" content="Chrissiecodes">
+	<title>All Tasks</title>
+</head>
+
+<body>
+	<h1>Big Ass List of Tasks</h1>
+	{{result}}
+	<script>
+		const request = new Request("http://127.0.0.1:8080/task_list/", { headers: { "Access-Control-Allow-Origin": "*" },"mode":"cors"})
+		fetch(request)
+		.then((response)=>{
+			console.log(response)
+		});
+	</script>
+</body>
+
+</html>
