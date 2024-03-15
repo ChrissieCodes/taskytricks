@@ -38,7 +38,7 @@ def task_list_detail(request, pk, format=None):
         return Response(serializer.data)
     
     elif request.method =='PUT':
-        serializer = TaskSerializer(task, data=data)
+        serializer = TaskSerializer(task, data=request.data)
         if serializer.is_valid():
             serializer.save()
             return Response(serializer.data)
@@ -88,7 +88,12 @@ def tag_detail(request, pk, format = None):
 def index(request):
     return render(request, "task_list/index.html")
 
+def task_full_list(request):
+    full_list = Task.objects.all()
+    list_dict = {"result_list":full_list}
+    return render(request, "task_list/task-list.html",list_dict)
+
 def task_detail(request,pk):
-    task_list_verbose = Task.objects.values()
+    task_list_verbose = Task.objects.get(pk=pk)
     task_dict = {"result":task_list_verbose}
-    return render(request, "task_list/task-list.html", task_dict)
+    return render(request, "task_list/task-detail.html", task_dict)

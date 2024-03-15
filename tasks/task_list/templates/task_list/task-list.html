@@ -10,14 +10,11 @@
 
 <body>
 	<h1>Big Ass List of Tasks</h1>
-	{{result}}
-	<script>
-		const request = new Request("http://127.0.0.1:8080/task_list/", { headers: { "Access-Control-Allow-Origin": "*" },"mode":"cors"})
-		fetch(request)
-		.then((response)=>{
-			console.log(response)
-		});
-	</script>
+    <ul>
+{% for result in result_list %}
+    <li>{{ result.name }}</li>
+{% endfor %}
+</ul>
 </body>
 
 </html>

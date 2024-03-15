@@ -9,7 +9,8 @@ urlpatterns = [
     path('tag/',views.tag_list),
     path('tag/<int:pk>/',views.tag_detail),
     path('all/', views.index, name="index"),
-    path('all/<int:pk>/',views.task_detail),
+    path('tasks/',views.task_full_list),
+    path('tasks/<int:pk>/',views.task_detail)
 ]
 
 
